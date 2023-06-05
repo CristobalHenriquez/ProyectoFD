@@ -1,0 +1,17 @@
+
+body {
+  background-color: rgb(85, 81, 81);
+  color: white; /* Esto establece el color del texto en blanco */
+}
+.container {
+  background-color: #888888; /* Cambia el valor del color si deseas un tono de gris diferente */
+}
+
+.btn-hover:hover {
+  background-color: #7ca8c7;
+    transition: background-color 0.3s ease;
+  }
+  .project-card {
+    background-color: #b5b8bc; /* Cambia el color de fondo aquí */
+  }
+  

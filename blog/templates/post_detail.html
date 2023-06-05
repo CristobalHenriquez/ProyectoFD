@@ -1,0 +1,39 @@
+{% extends 'layout.html'%} {% block content %}
+
+<div class="text-center">
+  <h1>Post</h1>
+
+  <article class="post">
+    {% if post.image %}
+      <div class="post-image">
+        <img src="{{post.image.url}}" class="mx-auto img-fluid" 
+        style="max-width: 80vw;" alt="{{post.image.alt}}" />
+      </div>
+    {% endif %}
+    <div class="post-content">
+      <h2>{{ post.description }}</h2>
+      <div class="post-metadata">
+        <p>Published on {{ post.date_published|date:"Y-m-d" }} by {{ post.author }}</p>
+      </div>
+      {{ post.content|safe }}
+    </div>
+  </article>
+</div>
+
+{% endblock %}
+
+
+<article class="post">
+  {% if post.image %}
+    <div class="post-image">
+      <img src="{{ post.image.url }}" alt="{{ post.title }}">
+    </div>
+  {% endif %}
+  <div class="post-content">
+    <h1>{{ post.title }}</h1>
+    <div class="post-metadata">
+      <p>Published on {{ post.date_published|date:"Y-m-d" }} by {{ post.author }}</p>
+    </div>
+    {{ post.content|safe }}
+  </div>
+</article>

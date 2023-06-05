@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% load static %}
+
+<header class="row bg-gray">
+  <div class="row">
+    <div class="col-md-4">
+      <img class="img-fluid" src="{% static 'portfolio/perfilfd.png'%}" alt="" style="margin-bottom: 1rem; display: block; margin: auto;" />
+    </div>
+
+    <div class="col-md-8 my-auto text-center">
+      <h1 class="text-dark">Soy Francisco Dichio</h1>
+      <h5 class="text-dark">
+        Algo de mí
+      </h5>
+      <p class="text-dark">
+        Emprendedor, busco siempre actuar proactivamente, bajo buenos valores y principios.
+        Dedico mucho tiempo a la lectura y al aprendizaje constante, de todas las fuentes de donde pueda recibirlo.
+        Busco mi perfeccionamiento profesional, orientado a ofrecerle lo mejor al cliente.
+        Me apasionan los bienes raíces y los desarrollos inmobiliarios.
+        Tengo rápido aprendizaje y me adapto fácilmente a cualquier puesto de trabajo.
+        Cuento con carnet de conducir y movilidad propia.
+      </p>
+
+      <ul class="profile__social" style="display: flex; justify-content: center; margin-bottom: 1rem;">
+        <a href="https://www.instagram.com/" target="_blank" class="profile__social-link text-light" style="margin-right: 1rem;">
+          <i class="ri-instagram-line"></i>
+        </a>
+        <a href="https://www.linkedin.com/in" target="_blank" class="profile__social-link text-light" style="margin-right: 1rem;">
+          <i class="ri-linkedin-box-line"></i>
+        </a>
+        <a href="https://github.com/" target="_blank" class="profile__social-link text-light" style="margin-right: 1rem;">
+          <i class="ri-github-fill"></i>
+        </a>
+      </ul>
+
+      <a href="{% static 'portfolio/cvfd.pdf'%}" class="btn btn-primary btn-lg rounded-o my-3" target="_blank">
+        Descarga del CV
+      </a>
+    </div>
+  </div>
+
+</header>
+
+<div class="row my-4 text-center">
+  <h2>Mis Proyectos</h2>
+  <p>
+    En mis proyectos, encontrarás ejemplos de mis trabajos.
+    ¡Estoy emocionado de compartir contigo mis proyectos y demostrarte mi pasión por el desarrollo web!
+  </p>
+  {% for project in projects %}
+  <div class="col-lg-4 col-md-6 col-sm-12 p-4">
+    <div class="card project-card">
+      <img src="{{ project.image.url }}" alt="{{ project.title }}" class="card-img-top" />
+
+      <div class="card-body">
+        <h4>{{ project.title }}</h4>
+        <p>{{ project.description }}</p>
+
+        {% if project.url %}
+        <a href="{{ project.url }}" class="btn btn-primary custom-link" target="_blank">
+          Ir a URL proyecto
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+  
+{% endblock %}
